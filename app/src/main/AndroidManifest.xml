@@ -12,6 +12,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AsistenteMascotas"
         tools:targetApi="31">
+
+        <!-- LoginActivity es la actividad de inicio -->
         <activity
             android:name=".LoginActivity"
             android:exported="true">
@@ -21,21 +23,12 @@
             </intent-filter>
         </activity>
 
+        <!-- MainActivity -->
+        <activity android:name=".MainActivity" android:exported="true" />
 
-        <activity android:name=".MainActivity">
-        </activity>
-
-
-
-
-
-
-
+        <!-- RegisterActivity -->
+        <activity android:name=".RegisterActivity" android:exported="true" />
 
     </application>
 
 </manifest>
-
-
-
-

@@ -6,26 +6,25 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import android.widget.Toast
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
     private lateinit var emailField: EditText
     private lateinit var passwordField: EditText
-    private lateinit var loginButton: Button
-    private lateinit var registerButton: Button // Nuevo botón
+    private lateinit var registerButton: Button
+    private lateinit var backToLoginButton: Button // Inicializar botón de regreso
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
 
         // Inicializar los elementos de la vista
         emailField = findViewById(R.id.emailField)
         passwordField = findViewById(R.id.passwordField)
-        loginButton = findViewById(R.id.loginButton)
-        registerButton = findViewById(R.id.registerButton) // Inicializar el botón de registro
+        registerButton = findViewById(R.id.registerButton)
+        backToLoginButton = findViewById(R.id.backToLoginButton) // Inicializar botón de regreso
 
-        // Setear el listener para el botón de login
-        loginButton.setOnClickListener {
+        // Configurar el listener del botón de registro
+        registerButton.setOnClickListener {
             val email = emailField.text.toString()
             val password = passwordField.text.toString()
 
@@ -36,23 +35,24 @@ class LoginActivity : AppCompatActivity() {
             } else if (password.isEmpty()) {
                 showAlert("Error", "Por favor, ingresa una contraseña.")
             } else {
-                val intent = Intent(this, MainActivity::class.java)
-                startActivity(intent)
-                finish()
+                showAlert("Éxito", "Registro completado correctamente.")
             }
         }
 
-        // Setear el listener para el botón de registro
-        registerButton.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java) // Redirigir a la actividad de registro
+        // Configurar el listener para regresar al LoginActivity
+        backToLoginButton.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
+            finish() // Finaliza la actividad actual
         }
     }
 
+    // Validar si el correo tiene formato válido
     private fun isValidEmail(email: String): Boolean {
         return email.contains("@") && (email.contains(".com") || email.contains(".org") || email.contains(".net"))
     }
 
+    // Mostrar mensajes de alerta
     private fun showAlert(title: String, message: String) {
         val builder = AlertDialog.Builder(this)
         builder.setTitle(title)

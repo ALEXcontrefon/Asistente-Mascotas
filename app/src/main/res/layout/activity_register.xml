@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="16dp"
-    tools:context=".LoginActivity">
+    tools:context=".RegisterActivity">
 
     <ImageView
         android:id="@+id/logoImageView"
@@ -21,7 +21,7 @@
         android:id="@+id/titleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Email y password"
+        android:text="Registro"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@android:color/black"
@@ -82,10 +82,10 @@
         android:layout_marginHorizontal="20dp" />
 
     <Button
-        android:id="@+id/loginButton"
+        android:id="@+id/registerButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="Registrar"
         android:backgroundTint="@color/gray_light"
         android:textColor="@android:color/black"
         app:layout_constraintTop_toBottomOf="@id/passwordField"
@@ -94,16 +94,17 @@
         android:layout_marginTop="16dp" />
 
     <Button
-        android:id="@+id/registerButton"
+        android:id="@+id/backToLoginButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:layout_marginTop="268dp"
         android:backgroundTint="@color/gray_light"
+        android:text="Back"
         android:textColor="@android:color/black"
-        app:layout_constraintTop_toBottomOf="@id/loginButton"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="16dp" />
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/registerButton" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

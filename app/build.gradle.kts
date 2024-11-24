@@ -1,7 +1,9 @@
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
-    id("kotlin-kapt") // Asegúrate de incluir este plugin para usar kapt
+    alias(libs.plugins.googleService)
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -45,13 +47,4 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
-
-    // Room
-    implementation("androidx.room:room-runtime:2.5.0")
-    kapt("androidx.room:room-compiler:2.5.0")
-    implementation("androidx.room:room-ktx:2.5.0")
-
-    // Coroutines (si aún no están)
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3")
 }
-

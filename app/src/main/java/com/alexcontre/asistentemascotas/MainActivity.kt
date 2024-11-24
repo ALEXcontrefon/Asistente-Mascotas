@@ -17,11 +17,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // Referencias a los contenedores
         petListContainer = findViewById(R.id.petListContainer)
         reminderListContainer = findViewById(R.id.reminderListContainer)
 
-        // Botón de configuración para mascotas
         val petEditButton: Button = findViewById(R.id.editPetButton)
         petEditButton.setOnClickListener {
             val popupMenu = PopupMenu(this, petEditButton)
@@ -49,13 +47,11 @@ class MainActivity : AppCompatActivity() {
 
         val backToLoginButton: Button = findViewById(R.id.backToLoginButton)
         backToLoginButton.setOnClickListener {
-            // Redirigir a la actividad de login
             val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
             finish() // Finaliza la actividad actual (MainActivity)
         }
 
-        // Botón de configuración para recordatorios
         val reminderEditButton: Button = findViewById(R.id.editReminderButton)
         reminderEditButton.setOnClickListener {
             val popupMenu = PopupMenu(this, reminderEditButton)
@@ -81,12 +77,10 @@ class MainActivity : AppCompatActivity() {
             popupMenu.show()
         }
 
-        // Inicializar las listas con sus títulos
         updatePetList()
         updateReminderList()
     }
 
-    // --- Métodos para la lista de mascotas ---
     private fun updatePetList() {
         petListContainer.removeAllViews()
         val titleTextView = TextView(this)
@@ -199,7 +193,6 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    // --- Métodos para la lista de recordatorios ---
     private fun updateReminderList() {
         reminderListContainer.removeAllViews()
         val titleTextView = TextView(this)
@@ -306,7 +299,6 @@ class MainActivity : AppCompatActivity() {
             .show()
     }
 
-    // Clases de datos
     data class Pet(var name: String, var breed: String, var age: Int)
     data class Reminder(var title: String, var description: String)
 }
